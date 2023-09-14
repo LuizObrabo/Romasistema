@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="col-8 m-auto pt-2 text-center">
+        <h1>Cadastro</h1>
+    </div>
+
+
+  <div class="col-8 m-auto pt-2 text-center">
+        <a href="/" class="btn btn-success">Voltar</a>
+    </div>
+  <div class="col-8 m-auto pt-4 pb-2 text-center">
+  <div id="result"></div>
+    <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
+        {% csrf_token %}
+        <!--{{form.as_p}}-->
+        <div class="form-group mt-4">Nome_completo: {{form.Nome_completo}}</div>
+        <div class="form-group mt-4">RG: {{form.RG}}</div>
+        <div class="form-group mt-4">CPF: {{form.CPF}}</div>
+         <div class="form-group mt-4">Data_de_nascimento: {{form.Data_nascimento}}</div>
+        <div class="form-group mt-4">Data_de_expedição: {{form.Data_de_expedição}}</div>
+        <div class="form-group mt-4">Orgão_emiçor: {{form.Orgão_emiçor}}</div>
+         <div class="form-group mt-4">Estado_civil: {{form.Estado_civil}}</div>
+        <div class="form-group mt-4">Nome_da_mãe: {{form.Nome_da_Mãe}}</div>
+        <div class="form-group mt-4">Empresa: {{form.Empresa}}</div>
+         <div class="form-group mt-4">Regime_de_trabalho: {{form.Regime_de_trabalho}}</div>
+        <div class="form-group mt-4">Profição: {{form.Profição}}</div>
+        <div class="form-group mt-4">Salario_bruto: {{form.Salario_bruto}}</div>
+         <div class="form-group mt-4">Salario_liquido: {{form.Salario_liquido}}</div>
+        <div class="form-group mt-4">Endereço_resisdencial: {{form.Endereço_residencial}}</div>
+        <div class="form-group mt-4">Numero: {{form.Numero}}</div>
+        <div class="form-group mt-4">Bairro: {{form.Bairro}}</div>
+        <div class="form-group mt-4">Cidade: {{form.Cidade}}</div>
+        <div class="form-group mt-4">Estado: {{form.Estado}}</div>
+        <div class="form-group mt-4">CEP: {{form.CEP}}</div>
+        <input type="submit" class="btn btn-success" value="Salvar">
+    </form>
+</div>
+
+{% load static %}
+<script src="{% static 'javascript.js' %}"></script>
+
+    </div>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD com Python</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="col-8 m-auto pt-2 text-center">
+        <h1>Crud com Python</h1>
+    </div>
+
+  <div class="col-8 m-auto pt-2 text-center">
+        <a href="/form" class="btn btn-success">Adicionar</a>
+    </div>
+  <div class="col-8 m-auto pt-2 text-center">
+        <form method="get">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Buscar cliente...">
+        </form>
+    </div>
+<div class="col-8 m-auto pt-4 pb-2 text-center">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nome_completo</th>
+              <th scope="col">RG</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Data_de_nascimento</th>
+              <th scope="col">Data_de_expedição</th>
+              <th scope="col">Orgão_emiçor</th>
+              <th scope="col">Estado_civil</th>
+              <th scope="col">Nome_da_Mãe</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Regime_de_trabalho</th>
+              <th scope="col">Profição</th>
+              <th scope="col">Salario_bruto</th>
+              <th scope="col">Salario_liquido</th>
+              <th scope="col">Endereço_residencial</th>
+              <th scope="col">Numero</th>
+              <th scope="col">Bairro</th>
+              <th scope="col">Cidade</th>
+              <th scope="col">Estado</th>
+              <th scope="col">CEP</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for dbs in db %}
+            <tr>
+              <th>{{dbs.id}}</th>
+              <td>{{dbs.Nome_completo}}</td>
+              <td>{{dbs.RG}}</td>
+              <td>{{dbs.CPF}}</td>
+              <td>{{dbs.Data_nascimento}}</td>
+              <td>{{dbs.Data_de_expedição}}</td>
+              <td>{{dbs.Orgão_emiçor}}</td>
+              <td>{{dbs.Estado_civil}}</td>
+              <td>{{dbs.Nome_da_Mãe}}</td>
+              <td>{{dbs.Empresa}}</td>
+              <td>{{dbs.Regime_de_trabalho}}</td>
+              <td>{{dbs.Profição}}</td>
+              <td>{{dbs.Salario_bruto}}</td>
+              <td>{{dbs.Salario_liquido}}</td>
+              <td>{{dbs.Endereço_residencial}}</td>
+              <td>{{dbs.Numero}}</td>
+              <td>{{dbs.Bairro}}</td>
+              <td>{{dbs.Cidade}}</td>
+              <td>{{dbs.Estado}}</td>
+              <td>{{dbs.CEP}}</td>
+             <th>
+                 <a href="/view/{{dbs.id}}/" class="btn btn-dark">Visualizar</a>
+                 <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Editar</a>
+                 <a href="/delete/{{dbs.id}}/" class="btn btn-danger btnDel">Deletar</a>
+             </th>
+            </tr>
+          {% endfor %}
+
+          </tbody>
+        </table>
+    </div>
+
+
+
+    </div>
+</body>
+</html>
+ <div class="pagination">
+        {% if db.has_previous %}
+            <a href="?page={{db.previous_page_number}}"> < </a>
+        {% endif %}
+
+        {{db.number}}
+
+        {% if db.has_next %}
+            <a href="?page={{db.next_page_number}}"> > </a>
+        {% endif %}
+ </div>
+
+{% load static %}
+<script src="{% static 'javascript.js' %}"></script>
+</body>
+</html>
